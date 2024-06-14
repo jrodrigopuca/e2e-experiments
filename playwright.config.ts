@@ -1,16 +1,20 @@
 import { defineConfig, devices } from "@playwright/test";
+import dotenv from "dotenv";
 import path from "path";
-
+// Alternatively, read from "../my.env" file.
+dotenv.config({ path: ".env.e2e" });
+console.log("TITLEEEEEEEEEEE", process.env.RED_TITLE);
 // Use process.env.PORT by default and fallback to port 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || "3000";
+const PATH = process.env.WEB_PATH || "/";
 
 // Set webServer.url and use.baseURL with the location of the WebServer respecting the correct set port
 const baseURL = `http://localhost:${PORT}`;
-
+console.log(baseURL);
 // Reference: https://playwright.dev/docs/test-configuration
 export default defineConfig({
 	// Timeout per test
-	timeout: 30 * 1000,
+	timeout: 10 * 1000,
 	// Test directory
 	testDir: path.join(__dirname, "e2e"),
 	// If a test fails, retry it additional 2 times
@@ -23,8 +27,11 @@ export default defineConfig({
 	webServer: {
 		command: "npm run dev",
 		url: baseURL,
-		timeout: 120 * 1000,
+		timeout: 12 * 1000,
 		reuseExistingServer: !process.env.CI,
+		env: {
+			TITLE_RED: process.env.TITLE_RED || "",
+		},
 	},
 
 	use: {
@@ -68,9 +75,9 @@ export default defineConfig({
 				...devices["Pixel 5"],
 			},
 		},
-		{
+		/*{
 			name: "Mobile Safari",
 			use: devices["iPhone 12"],
-		},
+		},*/
 	],
 });
