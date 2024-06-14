@@ -9,7 +9,7 @@ const PORT = process.env.PORT || "3000";
 const PATH = process.env.WEB_PATH || "/";
 
 // Set webServer.url and use.baseURL with the location of the WebServer respecting the correct set port
-const baseURL = `http://localhost:${PORT}`;
+const baseURL = `http://localhost:${PORT}${PATH}`;
 console.log(baseURL);
 // Reference: https://playwright.dev/docs/test-configuration
 export default defineConfig({
@@ -31,6 +31,7 @@ export default defineConfig({
 		reuseExistingServer: !process.env.CI,
 		env: {
 			TITLE_RED: process.env.TITLE_RED || "",
+			WEB_PATH: process.env.WEB_PATH || "",
 		},
 	},
 

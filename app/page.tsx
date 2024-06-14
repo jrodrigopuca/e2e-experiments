@@ -7,10 +7,10 @@ export default function Home() {
 			<div className={styles.description}>
 				<h1>Elije sabiamente</h1>
 				<Link href="/red">
-					Rojo
+					<button id="red-btn">Rojo</button>
 				</Link>
 				<Link href="/blue">
-					Azul
+					<button id="blue-btn">Azul</button>
 				</Link>
 			</div>
 		</main>
