@@ -1,7 +1,5 @@
 import { test, expect } from "@playwright/test";
-const PORT = process.env.PORT || "3000";
-const PATH = process.env.WEB_PATH || "/";
-const URL = `http://localhost:${PORT}${PATH}`;
+import { URL } from "./utils";
 
 test("debería ir a la página principal", async ({ page }) => {
 	await page.goto(URL);

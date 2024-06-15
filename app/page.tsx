@@ -12,6 +12,9 @@ export default function Home() {
 				<Link href="/blue">
 					<button id="blue-btn">Azul</button>
 				</Link>
+				<Link href="/green">
+					<button id="green-btn">Verde</button>
+				</Link>
 			</div>
 		</main>
 	);
