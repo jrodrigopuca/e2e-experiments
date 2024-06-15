@@ -3,6 +3,12 @@ const PORT = process.env.PORT || "3000";
 const PATH = process.env.WEB_PATH || "/";
 const URL = `http://localhost:${PORT}${PATH}`;
 
+test("debería ir a la página principal", async ({ page }) => {
+	await page.goto(URL);
+	await page.screenshot({ path: "screenshots/home.png" });
+	await expect(page).toHaveURL(URL);
+});
+
 test("debería ir a la página roja", async ({ page }) => {
 	await page.goto(URL);
 

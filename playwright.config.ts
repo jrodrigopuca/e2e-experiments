@@ -3,14 +3,14 @@ import dotenv from "dotenv";
 import path from "path";
 // Alternatively, read from "../my.env" file.
 dotenv.config({ path: ".env.e2e" });
-console.log("TITLEEEEEEEEEEE", process.env.RED_TITLE);
+//console.log("TITLEEEEEEEEEEE", process.env.RED_TITLE);
 // Use process.env.PORT by default and fallback to port 3000
 const PORT = process.env.PORT || "3000";
 const PATH = process.env.WEB_PATH || "/";
 
 // Set webServer.url and use.baseURL with the location of the WebServer respecting the correct set port
 const baseURL = `http://localhost:${PORT}${PATH}`;
-console.log(baseURL);
+//console.log(baseURL);
 // Reference: https://playwright.dev/docs/test-configuration
 export default defineConfig({
 	// Timeout per test
@@ -70,13 +70,13 @@ export default defineConfig({
 		//   },
 		// },
 		// Test against mobile viewports.
-		{
+		/*{
 			name: "Mobile Chrome",
 			use: {
 				...devices["Pixel 5"],
 			},
 		},
-		/*{
+		{
 			name: "Mobile Safari",
 			use: devices["iPhone 12"],
 		},*/
